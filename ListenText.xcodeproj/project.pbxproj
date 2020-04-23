@@ -13,9 +13,13 @@
 		8302BC232451F174002DF92C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8302BC212451F174002DF92C /* Main.storyboard */; };
 		8302BC252451F175002DF92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8302BC242451F175002DF92C /* Assets.xcassets */; };
 		8302BC282451F175002DF92C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8302BC262451F175002DF92C /* LaunchScreen.storyboard */; };
+		F740890B5E7F2602E27A7210 /* Pods_ListenText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1CBACA31B9A1D338805E63 /* Pods_ListenText.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		174510EFCC43A43EBEC1F95E /* Pods-ListenText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListenText.debug.xcconfig"; path = "Target Support Files/Pods-ListenText/Pods-ListenText.debug.xcconfig"; sourceTree = "<group>"; };
+		429C8FCC43941DA4433BCADA /* Pods-ListenText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListenText.release.xcconfig"; path = "Target Support Files/Pods-ListenText/Pods-ListenText.release.xcconfig"; sourceTree = "<group>"; };
+		7A1CBACA31B9A1D338805E63 /* Pods_ListenText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListenText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8302BC182451F174002DF92C /* ListenText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListenText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8302BC1B2451F174002DF92C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8302BC1D2451F174002DF92C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F740890B5E7F2602E27A7210 /* Pods_ListenText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		225029BD6E0BD0A2F0E8BD22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				174510EFCC43A43EBEC1F95E /* Pods-ListenText.debug.xcconfig */,
+				429C8FCC43941DA4433BCADA /* Pods-ListenText.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4359BFCFA8A94CE3A8843264 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A1CBACA31B9A1D338805E63 /* Pods_ListenText.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8302BC0F2451F174002DF92C = {
 			isa = PBXGroup;
 			children = (
 				8302BC1A2451F174002DF92C /* ListenText */,
 				8302BC192451F174002DF92C /* Products */,
+				225029BD6E0BD0A2F0E8BD22 /* Pods */,
+				4359BFCFA8A94CE3A8843264 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8302BC2C2451F175002DF92C /* Build configuration list for PBXNativeTarget "ListenText" */;
 			buildPhases = (
+				A9308642E8CED789952EA90C /* [CP] Check Pods Manifest.lock */,
 				8302BC142451F174002DF92C /* Sources */,
 				8302BC152451F174002DF92C /* Frameworks */,
 				8302BC162451F174002DF92C /* Resources */,
+				1AB407E426E3D5C039F62E2A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1AB407E426E3D5C039F62E2A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ListenText/Pods-ListenText-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ListenText/Pods-ListenText-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ListenText/Pods-ListenText-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9308642E8CED789952EA90C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ListenText-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8302BC142451F174002DF92C /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		8302BC2D2451F175002DF92C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 174510EFCC43A43EBEC1F95E /* Pods-ListenText.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +370,7 @@
 		};
 		8302BC2E2451F175002DF92C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 429C8FCC43941DA4433BCADA /* Pods-ListenText.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
