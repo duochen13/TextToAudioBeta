@@ -17,6 +17,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     var googleURL: URL {
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
+    let session = URLSession.shared
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -46,12 +47,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
+    // usage: imagePickerController()
     func base64EncodeImage(_ image: UIImage) -> String {
         let imagedata = image.pngData()
         // Resize the image if it exceeds the 2MB API limit, to be added
         return imagedata!.base64EncodedString(options: .endLineWithCarriageReturn)
     }
     
+    // usage: imagePickerController()
     func createRequest(with imageBase64: String) {
         var request = URLRequest(url: googleURL)
         request.httpMethod = "POST"
@@ -67,23 +70,39 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     [
                         "type": "LABEL_DETECTION",
                         "maxResults": 10
-                    ],
-                    [
-                        "type": "FACE_DETECTION",
-                        "maxResults": 10
                     ]
                 ]
             ]
         ]
-        let jsonObject = JSON(jsonDictionary: jsonRequest)
+        // Serialize the JSON
+        let jsonData = try! JSONSerialization.data(withJSONObject: jsonRequest, options: [])
+        
+        request.httpBody = jsonData
+        print("jsonData: ", jsonData)
+        
+        let task: URLSessionDataTask = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            print("data: ", data)
+            // self.analyzeResults(data)
+        }
+        
+        task.resume()
+        
+        
+        task.resume()
         
         // Serialize the JSON
-        guard let data = try? jsonObject.rawData() else {
-            return
-        }
-        request.httpBody = data
+//        guard let data = try? jsonObject.rawData() else {
+//            return
+//        }
+//        request.httpBody = data
         // Run the request on a background thread
-        DispatchQueue.global().async { self.runRequestOnBackgroundThread(request) }
+        
+        
+        // DispatchQueue.global().async { self.runRequestOnBackgroundThread(request) }
     }
     
     override func viewDidLoad() {
