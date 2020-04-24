@@ -59,9 +59,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         var request = URLRequest(url: googleURL)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        // request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
         // Build our API request
-        let jsonRequest = [
+        let json = [
             "requests": [
                 "image": [
                     "content": imageBase64
@@ -75,34 +75,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             ]
         ]
         // Serialize the JSON
-        let jsonData = try! JSONSerialization.data(withJSONObject: jsonRequest, options: [])
-        
+        let jsonData = try! JSONSerialization.data(withJSONObject: json)
         request.httpBody = jsonData
+        
         print("jsonData: ", jsonData)
         
-        let task: URLSessionDataTask = session.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "")
+        // running an async task in submitClicked
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORK ERROR")
                 return
             }
-            print("data: ", data)
-            // self.analyzeResults(data)
+            print("response data: ", data)
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return
+            }
         }
-        
         task.resume()
         
-        
-        task.resume()
-        
-        // Serialize the JSON
-//        guard let data = try? jsonObject.rawData() else {
-//            return
-//        }
-//        request.httpBody = data
-        // Run the request on a background thread
-        
-        
-        // DispatchQueue.global().async { self.runRequestOnBackgroundThread(request) }
+    
     }
     
     override func viewDidLoad() {
