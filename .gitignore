@@ -1,5 +1,6 @@
 /credentials.plist
 /.DS_Store
+/server/.env
 
 # Xcode
 #
