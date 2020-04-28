@@ -1,6 +1,7 @@
 import os
 import requests
-from flask import Flask, request
+import json
+from flask import Flask, request, jsonify
 from google.cloud import vision
 
 TOKEN = os.environ["TOKEN"]
@@ -17,11 +18,14 @@ def index():
 def test():
     if request.method == 'POST':
         image_base_content = request.json['content']
-        print("received image, processing...")
+        print("\nreceived image, processing...")
         vision_result = get_vision_result(image_base_content)
-        print("vision result:\n {}".format(vision_result))
-        
-    return 'this is test'
+        print("\nvision result:\n {}".format(vision_result))
+        # paring response, error handling to be added
+        labels = json.loads(vision_result)["responses"][0]["labelAnnotations"]
+        response = [label["description"] for label in labels]
+        # labels: [l1, l2, l3, l4]
+    return jsonify(labels=response)
 
 # helper function
 def get_vision_result(image_base_content):

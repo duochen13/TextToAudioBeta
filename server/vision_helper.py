@@ -6,6 +6,7 @@ import json
 from google.cloud import vision
 
 TOKEN = os.environ["TOKEN"]
+print(TOKEN)
 URL = "https://vision.googleapis.com/v1/images:annotate?key={}".format(TOKEN)
 
 # image -> base64 (sent from ios)
