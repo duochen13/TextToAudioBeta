@@ -1,6 +1,7 @@
 /credentials.plist
 /.DS_Store
-/server/.env
+/server/env
+/server/keyFile.json
 
 # Xcode
 #

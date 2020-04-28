@@ -21,6 +21,55 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBOutlet weak var imageView: UIImageView!
     
+    
+    @IBAction func testPostRequest(_ sender: Any) {
+        let imageBase64: String = "thiis is imageBase64"
+        
+        let url = URL(string: "http://localhost:5000/test")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        // request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        
+//        let json = [
+//            "requests": [
+//                "image": [
+//                    "content": imageBase64
+//                ],
+//                "features": [
+//                    [
+//                        "type": "LABEL_DETECTION",
+//                        "maxResults": 10
+//                    ]
+//                ]
+//            ]
+//        ]
+        let json = ["content": imageBase64]
+        
+        // Serialize the JSON
+        let jsonData = try! JSONSerialization.data(withJSONObject: json)
+        request.httpBody = jsonData
+        
+        print("jsonData: ", jsonData)
+        
+        // running an async task in submitClicked
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORK ERROR")
+                return
+            }
+            print("response data: ", data)
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return
+            }
+        }
+        task.resume()
+        
+    }
+    
+    
     @IBAction func takePhoto(_ sender: Any) {
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
