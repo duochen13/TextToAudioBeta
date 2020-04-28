@@ -2,6 +2,8 @@
 /.DS_Store
 /server/env
 /server/keyFile.json
+/server/__pycache__
+/server/.DS_Store
 
 # Xcode
 #
