@@ -1,3 +1,8 @@
+# extract-based: document -> sentence similarity -> weight sentences -> select sentences with higher rank
+# https://blog.floydhub.com/gentle-introduction-to-text-summarization-in-machine-learning/
+# abstract-based: document -> understand context -> semantics -> create own summary
+# https://www.analyticsvidhya.com/blog/2019/06/comprehensive-guide-text-summarization-using-deep-learning-python/
+
 import bs4 as BeautifulSoup
 import urllib.request
 from nltk.corpus import stopwords
@@ -94,6 +99,7 @@ def _get_article_summary(sentences, sentence_weight, threshold):
             sentence_counter += 1
     return article_summary
 
+# k * threshold, threshold increases -> summary size decreases
 article_summary = _get_article_summary(sentences, sentence_scores, 1.1 * threshold)
 
 # print(article_content)

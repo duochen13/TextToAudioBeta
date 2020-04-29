@@ -1,4 +1,6 @@
-# TextToAudioBeta
+# ScanToSummary
+
+> "when you are running out of time, you don't have to read 20+ pages of article before attending WRITING 101, all you need is just a summary of the material"
 
 ### frontend
 ```
@@ -29,8 +31,8 @@ server
     ├── index.py
     ├── resource
     │   └── test_img.png
-    ├── upload_to_bucket.py
-	├── download_from_bucket.py
+    ├── article_summary.py
+	├── ngrok
     └── vision_helper.py
 ```
 
