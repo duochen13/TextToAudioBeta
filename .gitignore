@@ -4,6 +4,8 @@
 /server/keyFile.json
 /server/__pycache__
 /server/.DS_Store
+/server/resource/.DS_Store
+/server/TextToAudioBetaKey.pem
 
 # Xcode
 #

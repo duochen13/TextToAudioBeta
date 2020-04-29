@@ -38,7 +38,7 @@ def get_vision_result(image_base_content):
           "features": [
             {
               "maxResults": 5,
-              "type": "LABEL_DETECTION"
+              "type": "DOCUMENT_TEXT_DETECTION" # "LABEL_DETECTION"
             }
           ]
         }

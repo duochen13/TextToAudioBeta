@@ -6,7 +6,6 @@ import json
 from google.cloud import vision
 
 TOKEN = os.environ["TOKEN"]
-print(TOKEN)
 URL = "https://vision.googleapis.com/v1/images:annotate?key={}".format(TOKEN)
 
 # image -> base64 (sent from ios)
@@ -24,7 +23,7 @@ def image_request(image_path):
 	      "features": [
 	        {
 	          "maxResults": 5,
-	          "type": "LABEL_DETECTION"
+	          "type": "DOCUMENT_TEXT_DETECTION" # "LABEL_DETECTION"
 	        }
 	      ]
 	    }
@@ -57,9 +56,14 @@ def get_vision_result(image_base_content):
 
 
 image_path = './resource/test_img.png'
-res = image_request(image_path)
-print(res)
-# print(json.loads(res))
+res = json.loads(image_request(image_path))
+
+# error handling
+data = res["responses"][0]["textAnnotations"]
+word_list = [item["description"] for item in data]
+print(word_list)
+for word in word_list:
+	print(word)
 
 
 # pics = ['https://i.imgur.com/2EUmDJO.jpg', 'https://i.imgur.com/FPMomNl.png']
