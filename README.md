@@ -4,9 +4,11 @@
 
 ### sample demo
 
-![demo_0](./server/resource/demo_0.png | width=48)
-![demo_1](./server/resource/demo_1.png | width=48)
-![demo_2](./server/resource/demo_2.png | width=48)
+
+<img src="./server/resource/demo_0.png" width="48")>
+<img src="./server/resource/demo_1.png" width="48")>
+<img src="./server/resource/demo_2.png" width="48")>
+
 
 ### frontend
 ```
