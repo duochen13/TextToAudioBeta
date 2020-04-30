@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    let camera_img = UIImage(named: "camera_default")
+    
     var imagePicker: UIImagePickerController!
     var googleAPIKey = ""
     var googleURL: URL {
@@ -30,6 +32,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         //imagePicker.sourceType = .camera
         imagePicker.sourceType = .photoLibrary
+        
+        take_photo_button.setImage(camera_img, for: .normal)
         
         present(imagePicker, animated:  true, completion: nil)
     }
@@ -68,7 +72,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Resize the image if it exceeds the 2MB API limit, to be added
         if (imagedata!.count > 2097152) {
             let oldSize: CGSize = image.size
-            let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
+            let newSize: CGSize = oldSize // CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
             imagedata = resizeImage(newSize, image: image)
         }
         
@@ -82,7 +86,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     // usage: imagePickerController()
     func createRequest(with imageBase64: String) {
         
-        let url = URL(string: "http://localhost:5000/test")!
+        // local url: http://localhost:5000/test
+        // public url: http://298bdeb7.ngrok.io/test
+        let url = URL(string: "http://298bdeb7.ngrok.io/test")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -113,6 +119,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                             let res = try JSONDecoder().decode(Labels.self, from:data)
             
                             print("raw.label", res.labels)
+                            
                             // self.raw_contents = res.sentence
                             // self.translated_contents = res.translates
                             
@@ -136,6 +143,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     override func viewDidLoad() {
+        // setup
+        take_photo_button.setImage(camera_img, for: .normal)
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.take_photo_button.isEnabled = true
@@ -144,34 +154,4 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
 
 
-}
-
-
-
-
-extension UIImage {
-    // MARK: - UIImage+Resize
-    func compressTo(_ expectedSizeInMb:Int) -> UIImage? {
-        let sizeInBytes = expectedSizeInMb * 1024 * 1024
-        var needCompress:Bool = true
-        var imgData:Data?
-        var compressingValue:CGFloat = 1.0
-        while (needCompress && compressingValue > 0.0) {
-            if let data:Data = self.jpegData(compressionQuality: compressingValue) {
-            if data.count < sizeInBytes {
-                needCompress = false
-                imgData = data
-            } else {
-                compressingValue -= 0.1
-            }
-        }
-    }
-
-    if let data = imgData {
-        if (data.count < sizeInBytes) {
-            return UIImage(data: data)
-        }
-    }
-        return nil
-    }
 }

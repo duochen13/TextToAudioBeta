@@ -20,12 +20,17 @@ def test():
         image_base_content = request.json['content']
         print("\nreceived image, processing...")
         vision_result = get_vision_result(image_base_content)
-        print("\nvision result:\n {}".format(vision_result))
+        # print("\nvision result:\n {}".format(vision_result))
         # paring response, error handling to be added
-        labels = json.loads(vision_result)["responses"][0]["labelAnnotations"]
-        response = [label["description"] for label in labels]
+        items = json.loads(vision_result)["responses"][0]["textAnnotations"]
+        response = [item["description"] for item in items]
+        max_content = max(response, key=len)
+        # max_content.replace('\n', ' ')
+        max_content = max_content.split('\n')
+        max_content = ' '.join(max_content)
+        print("max_content: ", max_content)
         # labels: [l1, l2, l3, l4]
-    return jsonify(labels=response)
+    return jsonify(labels=[max_content])
 
 # helper function
 def get_vision_result(image_base_content):

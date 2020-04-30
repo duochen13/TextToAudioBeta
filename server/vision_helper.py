@@ -65,6 +65,11 @@ print(word_list)
 for word in word_list:
 	print(word)
 
+main_content = max(word_list, key=len)
+
+print("\nmain_content: \n{}, \nlength:{}".format(main_content, len(main_content)))
+
+
 # convert paragraph into sentences: (based on , .)
 # remove stop words
 # tokenization: get all words in the sentences

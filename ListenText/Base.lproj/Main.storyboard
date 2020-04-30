@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,30 +16,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-Uv-6ZV">
-                                <rect key="frame" x="35" y="74" width="343" height="446"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFO-rU-VN3">
-                                <rect key="frame" x="111" y="747" width="191" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFf-HG-RE8">
-                                <rect key="frame" x="133" y="576" width="149" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Take Photo">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xjv-Vw-yF0"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpM-jJ-u7e">
+                                <rect key="frame" x="0.0" y="64" width="414" height="832"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-Uv-6ZV">
+                                        <rect key="frame" x="40" y="0.0" width="334" height="456"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFO-rU-VN3">
+                                        <rect key="frame" x="23" y="570" width="369" height="251"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="251" id="GEZ-g6-KCl"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="19" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFf-HG-RE8">
+                                        <rect key="frame" x="119" y="456" width="176" height="114"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" image="camera_default">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xjv-Vw-yF0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FFO-rU-VN3" secondAttribute="trailing" constant="22" id="4JN-sO-MpU"/>
+                                    <constraint firstItem="hcq-Uv-6ZV" firstAttribute="leading" secondItem="YpM-nd-Hrv" secondAttribute="leading" constant="40" id="9oG-pb-L5Q"/>
+                                    <constraint firstItem="FFO-rU-VN3" firstAttribute="leading" secondItem="YpM-nd-Hrv" secondAttribute="leading" constant="23" id="Gqv-jV-YTg"/>
+                                    <constraint firstItem="mFf-HG-RE8" firstAttribute="centerX" secondItem="FFO-rU-VN3" secondAttribute="centerX" id="J6J-Ee-5dx"/>
+                                    <constraint firstItem="YpM-nd-Hrv" firstAttribute="bottom" secondItem="FFO-rU-VN3" secondAttribute="bottom" constant="11" id="K3T-mb-v3l"/>
+                                    <constraint firstItem="mFf-HG-RE8" firstAttribute="top" secondItem="hcq-Uv-6ZV" secondAttribute="bottom" id="Msi-rT-Fgt"/>
+                                    <constraint firstItem="hcq-Uv-6ZV" firstAttribute="centerX" secondItem="mFf-HG-RE8" secondAttribute="centerX" id="biq-Pf-0jS"/>
+                                    <constraint firstItem="FFO-rU-VN3" firstAttribute="top" secondItem="mFf-HG-RE8" secondAttribute="bottom" id="k15-ax-ejd"/>
+                                    <constraint firstItem="hcq-Uv-6ZV" firstAttribute="top" secondItem="C9B-mL-Tlv" secondAttribute="top" id="mmV-3y-6sZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FFO-rU-VN3" secondAttribute="bottom" constant="11" id="qPB-Nf-aAb"/>
+                                    <constraint firstItem="hcq-Uv-6ZV" firstAttribute="centerX" secondItem="mpM-jJ-u7e" secondAttribute="centerX" id="zK8-qW-ENC"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="C9B-mL-Tlv"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="YpM-nd-Hrv"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mpM-jJ-u7e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="3Yi-uN-slz"/>
+                            <constraint firstItem="mpM-jJ-u7e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vq1-vk-zu5"/>
+                            <constraint firstItem="mpM-jJ-u7e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gIw-gk-d0C"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="mpM-jJ-u7e" secondAttribute="bottom" constant="-34" id="kgt-jp-XFy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -52,4 +86,7 @@
             <point key="canvasLocation" x="-555.07246376811599" y="257.8125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera_default" width="176" height="114"/>
+    </resources>
 </document>
