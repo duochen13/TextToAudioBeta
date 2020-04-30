@@ -4,9 +4,9 @@
 
 ### sample demo
 
-![demo_0](./server/resource/demo_0.png)
-![demo_1](./server/resource/demo_1.png)
-![demo_2](./server/resource/demo_2.png)
+![demo_0](./server/resource/demo_0.png=250x250)
+![demo_1](./server/resource/demo_1.png=250x250)
+![demo_2](./server/resource/demo_2.png=250x250)
 
 ### frontend
 ```
