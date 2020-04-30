@@ -65,6 +65,12 @@ print(word_list)
 for word in word_list:
 	print(word)
 
+# convert paragraph into sentences: (based on , .)
+# remove stop words
+# tokenization: get all words in the sentences
+# evaluate weight occurrence frequency of words
+# substitute words with their weighted frequencies
+
 
 # pics = ['https://i.imgur.com/2EUmDJO.jpg', 'https://i.imgur.com/FPMomNl.png']
 # client = vision.ImageAnnotatorClient()

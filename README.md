@@ -1,6 +1,6 @@
 # ScanToSummary
 
-> "when you are running out of time, you don't have to read 20+ pages of article before attending WRITING 101, all you need is just a summary of the material"
+> "When you are running out of time, you don't have to read 20+ pages of article before attending WRITING 101, all you need is just a summary of the material"
 
 ### frontend
 ```
