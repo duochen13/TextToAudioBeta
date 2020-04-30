@@ -4,10 +4,14 @@
 
 ### sample demo
 
+<div style="overflow: hidden; display: flex; justify-content:space-around;">
 
-<img src="./server/resource/demo_0.png" width="48")>
-<img src="./server/resource/demo_1.png" width="48")>
-<img src="./server/resource/demo_2.png" width="48")>
+<img src="https://user-images.githubusercontent.com/33765173/80675012-6e0d4880-8a81-11ea-9f2f-d9d54714e485.png" width="290" height="500" />
+<img src="https://user-images.githubusercontent.com/33765173/80675033-76fe1a00-8a81-11ea-96b0-ff4bfd40f1ff.png" width="290" height="500" />
+<img src="https://user-images.githubusercontent.com/33765173/80675039-7a91a100-8a81-11ea-8539-cba816dffe08.png" width="290" height="500" />
+
+</div>
+
 
 
 ### frontend
