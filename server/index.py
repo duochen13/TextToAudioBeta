@@ -3,6 +3,7 @@ import requests
 import json
 from flask import Flask, request, jsonify
 from google.cloud import vision
+from nlp_helper import sent_tokenize, _create_dictionary_table, _calculate_sentence_scores, _calculate_average_score, _get_article_summary
 
 TOKEN = os.environ["TOKEN"]
 URL = "https://vision.googleapis.com/v1/images:annotate?key={}".format(TOKEN)
@@ -31,6 +32,17 @@ def test():
         print("max_content: ", max_content)
         # labels: [l1, l2, l3, l4]
     return jsonify(labels=[max_content])
+
+@app.route('/summary', methods=['POST', 'GET'])
+def summary(article_content):
+    if request.method == 'POST':
+        sentences = sent_tokenize(article_content)
+        frequency_table = _create_dictionary_table(article_content)
+        sentence_scores = _calculate_sentence_scores(sentences, frequency_table)
+        threshold = _calculate_average_score(sentence_scores)
+        article_summary = _get_article_summary(sentences, sentence_scores, 1.1 * threshold)
+        print("I received post request summary")
+    return ''
 
 # helper function
 def get_vision_result(image_base_content):
