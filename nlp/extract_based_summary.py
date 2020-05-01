@@ -103,8 +103,7 @@ def _get_article_summary(sentences, sentence_weight, threshold):
 # k * threshold, threshold increases -> summary size decreases
 article_summary = _get_article_summary(sentences, sentence_scores, 1.1 * threshold)
 
-# print(article_content)
-print("\n")
-print(article_summary)
-print("\n")
+print("raw text \n")
 print(article_content)
+print("summary \n")
+print(article_summary)

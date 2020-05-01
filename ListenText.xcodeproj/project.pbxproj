@@ -13,6 +13,7 @@
 		8302BC232451F174002DF92C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8302BC212451F174002DF92C /* Main.storyboard */; };
 		8302BC252451F175002DF92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8302BC242451F175002DF92C /* Assets.xcassets */; };
 		8302BC282451F175002DF92C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8302BC262451F175002DF92C /* LaunchScreen.storyboard */; };
+		8350C745245C21B30087A745 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8350C744245C21B30087A745 /* TextViewController.swift */; };
 		F740890B5E7F2602E27A7210 /* Pods_ListenText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1CBACA31B9A1D338805E63 /* Pods_ListenText.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		8302BC242451F175002DF92C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8302BC272451F175002DF92C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8302BC292451F175002DF92C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8350C744245C21B30087A745 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				8302BC1B2451F174002DF92C /* AppDelegate.swift */,
 				8302BC1D2451F174002DF92C /* SceneDelegate.swift */,
 				8302BC1F2451F174002DF92C /* ViewController.swift */,
+				8350C744245C21B30087A745 /* TextViewController.swift */,
 				8302BC212451F174002DF92C /* Main.storyboard */,
 				8302BC242451F175002DF92C /* Assets.xcassets */,
 				8302BC262451F175002DF92C /* LaunchScreen.storyboard */,
@@ -209,6 +212,7 @@
 				8302BC202451F174002DF92C /* ViewController.swift in Sources */,
 				8302BC1C2451F174002DF92C /* AppDelegate.swift in Sources */,
 				8302BC1E2451F174002DF92C /* SceneDelegate.swift in Sources */,
+				8350C745245C21B30087A745 /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

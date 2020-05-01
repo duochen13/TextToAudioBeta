@@ -21,7 +21,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     let session = URLSession.shared
     
-    @IBOutlet weak var target_label: UILabel!
+    var target_label_text: String = ""
+    
     @IBOutlet weak var take_photo_button: UIButton!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -50,7 +51,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
         }
         
-        self.target_label.text = ""
         
         imagePicker.dismiss(animated: true, completion: nil)
     }
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         // local url: http://localhost:5000/test
         // public url: http://298bdeb7.ngrok.io/test
-        let url = URL(string: "http://298bdeb7.ngrok.io/test")!
+        let url = URL(string: "http://localhost:5000/test")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -125,10 +125,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                             
                             DispatchQueue.main.async {
 
-//                                var appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                                context = appDelegate.persistentContainer.viewContext
-                                self.target_label.text = res.labels[0]
                                 
+                                self.target_label_text = res.labels[0]
+                                
+                                // perform segue
+                                // send text to the next view
+                                self.performSegue(withIdentifier: "showTextSegue", sender: self)
                             }
 
                             
@@ -142,6 +144,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         task.resume()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTextSegue" {
+            if let destinate_vc = segue.destination as? TextViewController {
+                // destinate_vc.contact_profile = people_profile_lists[(contactListTable.indexPathForSelectedRow?.row)!]
+                destinate_vc.target_label_text = target_label_text
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         // setup
         take_photo_button.setImage(camera_img, for: .normal)
@@ -150,7 +161,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Do any additional setup after loading the view.
         self.take_photo_button.isEnabled = true
 
-        self.target_label.text = ""
+        
     }
 
 
