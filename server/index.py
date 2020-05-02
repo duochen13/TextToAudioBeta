@@ -15,35 +15,39 @@ app = Flask(__name__)
 def index():
     return 'Hello World'
 
+# receivce: {"content": "..."}
+# response: {"labels":["..."]}
 @app.route('/test', methods=['POST', 'GET'])
 def test():
     if request.method == 'POST':
         image_base_content = request.json['content']
-        print("\nreceived image, processing...")
+        print("\n/test received image, processing...")
         vision_result = get_vision_result(image_base_content)
-        # print("\nvision result:\n {}".format(vision_result))
         # paring response, error handling to be added
         items = json.loads(vision_result)["responses"][0]["textAnnotations"]
         response = [item["description"] for item in items]
         max_content = max(response, key=len)
-        # max_content.replace('\n', ' ')
         max_content = max_content.split('\n')
         max_content = ' '.join(max_content)
         print("max_content: ", max_content)
         # labels: [l1, l2, l3, l4]
     return jsonify(labels=[max_content])
 
+# receive: {"raw_text":"...."}
+# response: {""}
 @app.route('/summary', methods=['POST', 'GET'])
-def summary(article_content):
+def summary():
     if request.method == 'POST':
+        print("/summary received raw text, summarizing...")
+        article_content = request.json['raw_text']
         sentences = sent_tokenize(article_content)
         frequency_table = _create_dictionary_table(article_content)
         sentence_scores = _calculate_sentence_scores(sentences, frequency_table)
         threshold = _calculate_average_score(sentence_scores)
         article_summary = _get_article_summary(sentences, sentence_scores, 1.1 * threshold)
-        print("I received post request summary")
-    return ''
-
+        summary_text=article_summary
+        print("summary_text: ", summary_text)
+    return jsonify(summary_text=summary_text)
 # helper function
 def get_vision_result(image_base_content):
     data = {

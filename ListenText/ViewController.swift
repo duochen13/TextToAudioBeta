@@ -99,8 +99,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Serialize the JSON
         let jsonData = try! JSONSerialization.data(withJSONObject: json)
         request.httpBody = jsonData
-        
-        print("jsonData: ", jsonData)
+
         
         // running an async task in submitClicked
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -120,26 +119,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
                             print("raw.label", res.labels)
                             
-                            // self.raw_contents = res.sentence
-                            // self.translated_contents = res.translates
-                            
                             DispatchQueue.main.async {
-
-                                
                                 self.target_label_text = res.labels[0]
                                 
                                 // perform segue
                                 // send text to the next view
                                 self.performSegue(withIdentifier: "showTextSegue", sender: self)
                             }
-
-                            
                         } catch let error {
                             print(error)
                         }
                     }
-            
-    
         }
         task.resume()
     }

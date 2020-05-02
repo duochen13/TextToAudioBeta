@@ -21,6 +21,7 @@ article_read = fetched_data.read()
 article_parsed = BeautifulSoup.BeautifulSoup(article_read,'html.parser')
 # Returning <p> tags
 paragraphs = article_parsed.find_all('p')
+
 article_content = '''Most living animal species are in the Bilateria, a clade whose members have a bilaterally symmetric body plan. The Bilateria include the protostomes—in which many groups of invertebrates are found, such as nematodes, arthropods, and molluscs—and the deuterostomes, containing both the echinoderms as well as the chordates, the latter containing the vertebrates. Life forms interpreted as early animals were present in the Ediacaran biota of the late Precambrian. Many modern animal phyla became clearly established in the fossil record as marine species during the Cambrian explosion, which began around 542 million years ago. 6,331 groups of genes common to all living animals have been identified; these may have arisen from a single common ancestor that lived 650 million years ago.'''
 # Looping through the paragraphs and adding them to the variable
 # for p in paragraphs:  
@@ -92,6 +93,19 @@ print("\nthreshold: \n", threshold)
 
 # Getting the summary
 def _get_article_summary(sentences, sentence_weight, threshold):
+    sentence_counter = 0
+    article_summary = ''
+    for sentence in sentences:
+        if sentence[:7] in sentence_weight and sentence_weight[sentence[:7]] >= (threshold):
+            article_summary += " " + sentence
+            sentence_counter += 1
+    return article_summary
+
+def server_get_summary(article_content, threshold):
+    sentences = sent_tokenize(article_content)
+    frequency_table = _create_dictionary_table(article_content)
+    sentence_weight = _calculate_sentence_scores(sentences, frequency_table)
+
     sentence_counter = 0
     article_summary = ''
     for sentence in sentences:

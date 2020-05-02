@@ -79,12 +79,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0Z-6k-lgg">
+                                <rect key="frame" x="20" y="570" width="374" height="209"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-ks-Nkk">
+                                <rect key="frame" x="0.0" y="852" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Summary" id="dsW-QS-BFx">
+                                        <connections>
+                                            <action selector="generate_summary:" destination="yQe-ev-Q0c" id="vOj-a4-f5G"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pkv-bA-FbH"/>
+                                    <barButtonItem title="Audio" id="Z5F-6U-fsQ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fRm-8Q-ry3"/>
+                                    <barButtonItem title="Trnslate" id="i4T-5d-hNK"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="QX3-SB-gmp"/>
                     </view>
                     <navigationItem key="navigationItem" id="FDY-GC-Mpa"/>
                     <connections>
+                        <outlet property="summary_label" destination="c0Z-6k-lgg" id="dhX-UC-uoD"/>
                         <outlet property="target_label" destination="iOc-i9-7zS" id="Qcg-Mm-EMk"/>
                     </connections>
                 </viewController>
