@@ -26,13 +26,14 @@ open ListenText.xcworkspace
 ```
 cd server
 source env/bin/activate
-python3 index.py (localhost:5000)
+python3 index.py
 ```
 
 ### api endpoints
 ```
 /: main page
 /test: received post request from frontend
+/summary: received raw text and return a summary of the text
 
 ```
 
@@ -40,14 +41,16 @@ python3 index.py (localhost:5000)
 ```
 ListenText
     ├── ViewController.swift 
+    ├── TextViewController.swift 
     ├── Main.storyboard
 server
     ├── index.py
     ├── resource
-    │   └── test_img.png
     ├── article_summary.py
-	├── ngrok
+	├── nlp_helper.py
     └── vision_helper.py
+nlp
+    └── extract_based_summary.py
 ```
 
 ### environment variables
