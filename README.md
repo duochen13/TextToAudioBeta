@@ -24,6 +24,8 @@ open ListenText.xcworkspace
 
 ### backend
 ```
+pip3 install -r requirements.txt
+pip freeze > requirements.txt
 cd server
 source env/bin/activate
 python3 index.py

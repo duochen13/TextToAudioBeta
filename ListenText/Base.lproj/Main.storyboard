@@ -98,9 +98,8 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pkv-bA-FbH"/>
                                     <barButtonItem title="Grammar" id="gra-KW-yTY"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Qn5-M1-cVt"/>
-                                    <barButtonItem title="Audio" id="Z5F-6U-fsQ"/>
+                                    <barButtonItem title="Analysis" id="3rF-Af-7pq"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fRm-8Q-ry3"/>
-                                    <barButtonItem title="Translate" id="i4T-5d-hNK"/>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziP-MC-V6z">

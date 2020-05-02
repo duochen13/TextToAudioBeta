@@ -22,7 +22,7 @@ article_parsed = BeautifulSoup.BeautifulSoup(article_read,'html.parser')
 # Returning <p> tags
 paragraphs = article_parsed.find_all('p')
 
-article_content = '''Most living animal species are in the Bilateria, a clade whose members have a bilaterally symmetric body plan. The Bilateria include the protostomes—in which many groups of invertebrates are found, such as nematodes, arthropods, and molluscs—and the deuterostomes, containing both the echinoderms as well as the chordates, the latter containing the vertebrates. Life forms interpreted as early animals were present in the Ediacaran biota of the late Precambrian. Many modern animal phyla became clearly established in the fossil record as marine species during the Cambrian explosion, which began around 542 million years ago. 6,331 groups of genes common to all living animals have been identified; these may have arisen from a single common ancestor that lived 650 million years ago.'''
+article_content = '''Introduction to Mina Mina Myoui (2# Myõi Mina), known mostly as Mina (Hangul: 014), was born on March 24, 1997 in San Antonio, Texas, and moved to Kobe, Japan, when she was a toddler. She is a vocalist and lead dancer of the group. In 2013, she was scouted by a JYP Entertainment staff member while shopping with her mother and was invited to join JYP Entertainment Global. She auditioned in a JYP audition in Japan and joined the trainee program in South Korea on January 2, 2014. Age 23 Debut Oct 20, 2015 '''
 # Looping through the paragraphs and adding them to the variable
 # for p in paragraphs:  
 #     article_content += p.text
