@@ -101,7 +101,7 @@ tqdm==4.45.0
 Tree==0.2.4
 twilio==6.35.4
 typed-ast==1.4.0
-urllib3==1.24.1
+urllib3==1.24.2
 virtualenv==16.6.2
 visvis==1.12.2
 Werkzeug==0.14.1
