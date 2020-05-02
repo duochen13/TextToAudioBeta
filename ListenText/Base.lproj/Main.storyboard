@@ -96,9 +96,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pkv-bA-FbH"/>
+                                    <barButtonItem title="Grammar" id="gra-KW-yTY"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Qn5-M1-cVt"/>
                                     <barButtonItem title="Audio" id="Z5F-6U-fsQ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fRm-8Q-ry3"/>
-                                    <barButtonItem title="Trnslate" id="i4T-5d-hNK"/>
+                                    <barButtonItem title="Translate" id="i4T-5d-hNK"/>
                                 </items>
                             </toolbar>
                         </subviews>

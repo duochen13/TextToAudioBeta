@@ -12,6 +12,8 @@ class TextViewController: UIViewController {
 
     // text sent from last VC
     var target_label_text: String?
+    // bool var devides whether display summary_label
+    var click_summary_button: Bool = false
     
     @IBOutlet weak var summary_label: UILabel!
     @IBOutlet weak var target_label: UILabel!
@@ -21,7 +23,14 @@ class TextViewController: UIViewController {
     }
     
     @IBAction func generate_summary(_ sender: Any) {
-
+        // update bbol var to decides whether display summary label
+        if (click_summary_button) {
+            summary_label.text = ""
+            click_summary_button = false
+            return
+        }
+        click_summary_button = true
+        
         // local url: http://localhost:5000/test
         // public url: http://298bdeb7.ngrok.io/test
         let url = URL(string: "http://localhost:5000/summary")!
