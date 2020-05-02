@@ -34,7 +34,6 @@ imageio==2.6.1
 isort==4.3.4
 itchat==1.3.10
 itsdangerous==1.1.0
-Jinja2==2.10
 joblib==0.14.1
 Keras==2.3.1
 Keras-Applications==1.0.8
@@ -55,7 +54,6 @@ oauthlib==3.1.0
 opencv-python==4.2.0.34
 opt-einsum==3.2.0
 pandas==0.25.2
-Pillow==5.4.1
 pizzapi==0.0.6
 ply==3.11
 progressbar2==3.50.1
@@ -101,9 +99,7 @@ tqdm==4.45.0
 Tree==0.2.4
 twilio==6.35.4
 typed-ast==1.4.0
-urllib3==1.24.1
 virtualenv==16.6.2
 visvis==1.12.2
-Werkzeug==0.14.1
 wrapt==1.11.1
 xmltodict==0.12.0
