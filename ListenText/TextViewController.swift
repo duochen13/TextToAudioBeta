@@ -17,6 +17,8 @@ class TextViewController: UIViewController {
     
     @IBOutlet weak var summary_label: UILabel!
     @IBOutlet weak var target_label: UILabel!
+    @IBOutlet weak var static_summary_label: UILabel!
+    
     
     struct SummaryText: Decodable {
         let summary_text: String
@@ -78,9 +80,16 @@ class TextViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // set up global variables
         target_label.text = "  \(target_label_text ?? "No text found")!"
         summary_label.text = ""
-        // Do any additional setup after loading the view.
+        // setup UI components
+        target_label.numberOfLines = 0
+        target_label.sizeToFit()
+        target_label.font = UIFont(name: "Helvetica", size: 20.0)
+        // font ref: https://github.com/lionhylra/iOS-UIFont-Names
+        summary_label.font = UIFont(name: "MarkerFelt-Wide", size: 20.0)
+        static_summary_label.font = UIFont(name: "BodoniOrnamentsITCTT", size: 28.0)
     }
     
 
