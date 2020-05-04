@@ -48,6 +48,7 @@ def summary():
         summary_text=article_summary
         print("summary_text: ", summary_text)
     return jsonify(summary_text=summary_text)
+
 # helper function
 def get_vision_result(image_base_content):
     data = {
