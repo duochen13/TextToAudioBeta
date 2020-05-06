@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 
-class TextViewController: UIViewController {
+class TextViewController: UIViewController, MFMailComposeViewControllerDelegate {
+    
 
     // text sent from last VC
     var target_label_text: String?
@@ -18,7 +20,7 @@ class TextViewController: UIViewController {
     @IBOutlet weak var summary_label: UILabel!
     @IBOutlet weak var target_label: UILabel!
     @IBOutlet weak var static_summary_label: UILabel!
-    
+    @IBOutlet weak var export_button: UIBarButtonItem!
     
     struct SummaryText: Decodable {
         let summary_text: String
@@ -74,6 +76,27 @@ class TextViewController: UIViewController {
         }
         task.resume()
         
+    }
+    
+    @IBAction func export_action(_ sender: Any) {
+        sendEmail()
+    }
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["duochen@umich.edu"])
+            mail.setSubject("Test Subject")
+            mail.setMessageBody("Hello", isHTML: false)
+            present(mail, animated: true, completion: nil)
+        } else {
+            print("fault encountered!")
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+         dismiss(animated: true, completion: nil)
     }
     
     

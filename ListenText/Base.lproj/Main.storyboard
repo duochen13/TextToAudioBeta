@@ -102,11 +102,12 @@
                                             <action selector="generate_summary:" destination="yQe-ev-Q0c" id="vOj-a4-f5G"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pkv-bA-FbH"/>
-                                    <barButtonItem title="Grammar" id="gra-KW-yTY"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Qn5-M1-cVt"/>
-                                    <barButtonItem title="Analysis" id="3rF-Af-7pq"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fRm-8Q-ry3"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nbN-bL-Bon"/>
+                                    <barButtonItem title="Export" id="bIh-hc-H5V">
+                                        <connections>
+                                            <action selector="export_action:" destination="yQe-ev-Q0c" id="wKp-Eq-LZH"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -115,6 +116,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="FDY-GC-Mpa"/>
                     <connections>
+                        <outlet property="export_button" destination="bIh-hc-H5V" id="C4k-rJ-X6y"/>
                         <outlet property="static_summary_label" destination="ziP-MC-V6z" id="7em-th-jwB"/>
                         <outlet property="summary_label" destination="c0Z-6k-lgg" id="dhX-UC-uoD"/>
                         <outlet property="target_label" destination="iOc-i9-7zS" id="Qcg-Mm-EMk"/>
@@ -122,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DH6-hZ-5By" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121.7391304347827" y="251.78571428571428"/>
+            <point key="canvasLocation" x="1277" y="258"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gvy-Gn-izh">
